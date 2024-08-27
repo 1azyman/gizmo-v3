@@ -291,6 +291,7 @@ public class PageDashboard extends PageAppTemplate {
         columns.add(GizmoUtils.createAbstractTaskRealizatorColumn(this));
         columns.add(GizmoUtils.createWorkProjectColumn(this));
         columns.add(GizmoUtils.createLogCustomerColumn(this));
+        columns.add(GizmoUtils.createTrackIdColumn(this));
         columns.add(new PropertyColumn(createStringResource("AbstractTask.description"), AbstractTask.F_DESCRIPTION));
         columns.add(new LinkIconColumn<AbstractTask>(new Model<>("")) {
 

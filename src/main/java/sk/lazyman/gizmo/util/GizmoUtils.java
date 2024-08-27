@@ -417,6 +417,28 @@ public class GizmoUtils {
         };
     }
 
+    public static IColumn createTrackIdColumn(PageTemplate page) {
+        return new AbstractColumn<AbstractTask, String>(page.createStringResource("Task.trackId")) {
+
+            @Override
+            public void populateItem(Item<ICellPopulator<AbstractTask>> cellItem, String componentId,
+                                     IModel<AbstractTask> rowModel) {
+                cellItem.add(new Label(componentId, createTrackIdModel(rowModel)));
+            }
+        };
+    }
+
+    private static IModel<String> createTrackIdModel(final IModel<AbstractTask> rowModel) {
+        return new AbstractReadOnlyModel<String>() {
+
+            @Override
+            public String getObject() {
+                AbstractTask task = rowModel.getObject();
+                return task.getTrackId();
+            }
+        };
+    }
+
     private static IModel<String> createInvoiceModel(final IModel<AbstractTask> rowModel) {
         return new AbstractReadOnlyModel<String>() {
 
